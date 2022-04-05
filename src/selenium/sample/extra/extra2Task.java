@@ -2,12 +2,17 @@ package selenium.sample.extra;
 
 import org.junit.After;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.Color;
 
 import java.io.File;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class extra2Task {
@@ -25,7 +30,11 @@ public class extra2Task {
         driver = new FirefoxDriver();
 //        TODO
 //        go to page https://kristinek.github.io/site/examples/po
+        driver.get("https://kristinek.github.io/site/examples/po");
 //        check the background color of h1 element
+        WebElement h1 = driver.findElement(By.xpath("//h1"));
+        System.out.println( Color.fromString(h1.getCssValue("backgroung-color")));
+
     }
 
     @Test
@@ -35,6 +44,10 @@ public class extra2Task {
 //        TODO
 //        go to page https://kristinek.github.io/site/examples/po
 //        check the background color of h1 element
+        driver.get("https://kristinek.github.io/site/examples/po");
+        WebElement h1 = driver.findElement(By.xpath("//h1"));
+        System.out.println( Color.fromString(h1.getCssValue("color")));
+        assertEquals("rgba(0, 0, 0, 1)",Color.fromString(h1.getCssValue("color")));
     }
 
     @Test
@@ -43,6 +56,10 @@ public class extra2Task {
         driver = new InternetExplorerDriver();
 //        TODO
 //        go to page https://kristinek.github.io/site/examples/po
+        driver.get("https://kristinek.github.io/site/examples/po");
+        WebElement h1 = driver.findElement(By.xpath("//h1"));
+        System.out.println( Color.fromString(h1.getCssValue("color")));
+        assertEquals("rgba(0, 0, 0, 1)",Color.fromString(h1.getCssValue("color")));
 //        check the background color of h1 element
     }
 }

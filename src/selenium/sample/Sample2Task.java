@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Sample2Task {
@@ -30,6 +31,7 @@ public class Sample2Task {
     // method which is being run after each test
     @After
     public void endingTests() throws Exception {
+        System.out.println("Test finished");
         driver.quit();
     }
 
@@ -37,25 +39,39 @@ public class Sample2Task {
     public void findElementByID() throws Exception {
 //         TODO:
 //         get text "Heading 2 text" using id
+        System.out.println(driver.findElement(By.id("heading_2")).getText());
     }
 
     @Test
     public void findElementByName() throws Exception {
+            WebElement randombutton=driver.findElement(By.name("randomButton2"));
 //         TODO:
 //         get attribute "id" and "value" of button "This is also a button" using name
+        System.out.println("button id-" + randombutton.getAttribute("id"));
+        System.out.println("button value-" + randombutton.getAttribute("value"));
+       // System.out.println(driver.findElement(By.id("randomButton2")).getAttribute("id"));
+        //System.out.println(driver.findElement(By.id("randomButton2")).getAttribute("value"));
     }
 
     @Test
     public void findElementByClassFirst() throws Exception {
 //         TODO:
 //         get first text of class "test" (should be "Test Text 1")
+        System.out.println("Test :"+ driver.findElements(By.className("test")).get(0).getText());
     }
 
     @Test
     public void findElementByClassAll() throws Exception {
 //         TODO:
+       // List<WebElement> someElem = driver.findElements(By.className("test"));
 //         get size text of class "test" (should be 5)
+        System.out.println("Size of class test:"+driver.findElements(By.className("test")).size());
 //         get text of class "test"
+        System.out.println("Text of test is:" + driver.findElements(By.className("test")).get(0).getText());
+        for (WebElement element: driver.findElements(By.className("test"))){
+        System.out.println("Text of test is:"+ element.getText());}
 //         get third text of class "test" (should be "Test Text 4")
+        System.out.println("3rd text of test is:" + driver.findElements(By.className("test")).get(2).getText());
+
     }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 
@@ -38,7 +39,14 @@ public class Sample8Task {
     public void styleChecks() throws Exception {
 //         TODO:
 //        check the background of top 2 sections
+        assertEquals("rgba(255, 221, 221, 1)",driver.findElement(By.className("w3-pale-red")).getCssValue("background-color"));
+        assertEquals("rgba(255, 255, 204, 1)",driver.findElement(By.className("w3-pale-yellow")).getCssValue("background-color"));
+
+
 //        rgba(255, 221, 221, 1);
+
 //        check h1 element font-size 64px
+        assertEquals("64px",driver.findElement(By.cssSelector(".w3-jumbo")).getCssValue("font-size"));
+        //assertEquals("64px",driver.findElement(By.xpath("//*[@class='w3-jumbo'")).getCssValue("font-size"));
     }
 }
