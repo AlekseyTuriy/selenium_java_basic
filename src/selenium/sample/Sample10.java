@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import selenium.pages.AgeSamplePage;
 import selenium.pages.AgeSubmittedSamplePage;
+import selenium.pages.GreenBlue;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
